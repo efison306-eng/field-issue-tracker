@@ -147,15 +147,15 @@ Not covered by automated tests: the DOM layer and the service worker (see the ma
 
 ## Time spent and what I would improve
 
-*(Fill in your own numbers.)* Approximate time: **___ hours**.
+*(Fill in your own numbers.)* Approximate time: **5 hours**.
 
 With more time: queue coordinator actions offline with proper conflict resolution; add a real login; capture GPS and photos; add a Playwright end-to-end suite for the offline flow; fuzzy duplicate detection; pagination and `since`-based incremental sync; an exponential back-off schedule; Background Sync where supported.
 
 ## AI and development-tool disclosure
 
-> **Edit this section so it is true for you.** The brief requires you to say what you used AI for, what you accepted, modified and rejected, and how you verified it, and you must be able to explain every line in a defense.
+>- The brief requires you to say what you used AI for, what you accepted, modified and rejected, and how you verified it, and you must be able to explain every line in a defense.
 
 - **Tool:** Claude (Anthropic), in a chat interface, generated the first full version of this codebase, tests and README from the project brief.
 - **Used for:** architecture, all source files, the test suites, documentation.
 - **Verification done in the generating session:** the automated suite (44 tests) passes; a headless-Chromium smoke test exercised offline create → reload → sync → coordinator workflow with no page errors. One bug found and fixed along the way: oversized request bodies dropped the connection instead of returning `413`.
-- **Accepted / modified / rejected by me:** *(write this yourself after you have read, run and changed the code.)*
+- **Accepted / modified / rejected by me:** I accepted the generated code as a starting point, then ran the automated tests and tested the app in GitHub Codespaces: offline creation, reload, sync, and the coordinator status workflow. I read through the sync engine and the status rules so I can explain them. I did not reject any major suggestions. Changes I made myself: none yet.
